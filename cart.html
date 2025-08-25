@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - URBAN THREADS</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>URBAN THREADS</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-icon active">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Shopping Cart</h1>
+            <p>Review your items before checkout</p>
+        </div>
+    </section>
+
+    <!-- Cart Content -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-content" id="cart-content">
+                <!-- Cart content will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>URBAN THREADS</h3>
+                    <p>Premium streetwear for the culture. Authentic designs, quality materials, bold statements.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop All</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#" onclick="showSizeGuide()">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="shop.html?category=hoodies">Hoodies</a></li>
+                        <li><a href="shop.html?category=tshirts">T-Shirts</a></li>
+                        <li><a href="shop.html?category=sneakers">Sneakers</a></li>
+                        <li><a href="shop.html?category=jackets">Jackets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#" onclick="showShippingInfo()">Shipping Info</a></li>
+                        <li><a href="#" onclick="showReturnPolicy()">Returns</a></li>
+                        <li><a href="#" onclick="showFAQ()">FAQ</a></li>
+                        <li><a href="contact.html">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Urban Threads. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

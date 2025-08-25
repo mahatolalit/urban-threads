@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URBAN THREADS - Premium Streetwear</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>URBAN THREADS</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2 class="hero-subtitle">STREET CULTURE</h2>
+                <h1 class="hero-title">DEFINE YOUR STYLE</h1>
+                <p class="hero-description">Discover our exclusive collection of premium streetwear that speaks your language. Bold designs, quality materials, authentic vibes.</p>
+                <div class="hero-buttons">
+                    <a href="shop.html" class="btn btn-primary">Shop Collection</a>
+                    <a href="#featured" class="btn btn-secondary">Explore</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwxfHxzdHJlZXR3ZWFyJTIwZmFzaGlvbnxlbnwwfHx8fDE3NTYxMTU0NjF8MA&ixlib=rb-4.1.0&q=85" alt="Streetwear Model" loading="lazy" width="600" height="600">
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="categories" id="featured">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card" data-category="hoodies">
+                    <img src="https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwzfHxob29kaWV8ZW58MHx8fHwxNzU2MTE1NDY2fDA&ixlib=rb-4.1.0&q=85" alt="Hoodies" loading="lazy" width="350" height="400">
+                    <div class="category-overlay">
+                        <h3>Hoodies</h3>
+                        <p>Premium comfort meets street style</p>
+                        <a href="shop.html?category=hoodies" class="btn btn-outline">Shop Hoodies</a>
+                    </div>
+                </div>
+                <div class="category-card" data-category="sneakers">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxzbmVha2Vyc3xlbnwwfHx8fDE3NTYwNTcyNTl8MA&ixlib=rb-4.1.0&q=85" alt="Sneakers" loading="lazy" width="350" height="400">
+                    <div class="category-overlay">
+                        <h3>Sneakers</h3>
+                        <p>Step up your street game</p>
+                        <a href="shop.html?category=sneakers" class="btn btn-outline">Shop Sneakers</a>
+                    </div>
+                </div>
+                <div class="category-card" data-category="tshirts">
+                    <img src="https://images.unsplash.com/photo-1538329972958-465d6d2144ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHxzdHJlZXR3ZWFyJTIwZmFzaGlvbnxlbnwwfHx8fDE3NTYxMTU0NjF8MA&ixlib=rb-4.1.0&q=85" alt="T-Shirts" loading="lazy" width="350" height="400">
+                    <div class="category-overlay">
+                        <h3>T-Shirts</h3>
+                        <p>Essential street basics</p>
+                        <a href="shop.html?category=tshirts" class="btn btn-outline">Shop T-Shirts</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-grid" id="featured-products">
+                <!-- Products will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay in the Loop</h2>
+                <p>Get exclusive access to new drops, sales, and street style inspiration</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>URBAN THREADS</h3>
+                    <p>Premium streetwear for the culture. Authentic designs, quality materials, bold statements.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop All</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#" onclick="showSizeGuide()">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="shop.html?category=hoodies">Hoodies</a></li>
+                        <li><a href="shop.html?category=tshirts">T-Shirts</a></li>
+                        <li><a href="shop.html?category=sneakers">Sneakers</a></li>
+                        <li><a href="shop.html?category=jackets">Jackets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#" onclick="showShippingInfo()">Shipping Info</a></li>
+                        <li><a href="#" onclick="showReturnPolicy()">Returns</a></li>
+                        <li><a href="#" onclick="showFAQ()">FAQ</a></li>
+                        <li><a href="contact.html">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Urban Threads. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>
