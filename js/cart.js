@@ -9,7 +9,7 @@ function initCart() {
 function loadCartPage() {
     const container = document.getElementById('cart-content');
     if (!container) return;
-    
+
     if (cart.length === 0) {
         container.innerHTML = `
             <div class="empty-cart">
@@ -21,12 +21,12 @@ function loadCartPage() {
         `;
         return;
     }
-    
+
     const subtotal = calculateSubtotal();
     const shipping = calculateShipping(subtotal);
     const tax = calculateTax(subtotal);
     const total = subtotal + shipping + tax;
-    
+
     container.innerHTML = `
         <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem;">
             <div class="cart-items">
@@ -139,34 +139,43 @@ function proceedToCheckout() {
         showMessage('Your cart is empty', 'error');
         return;
     }
-    
-    // In a real application, this would redirect to a payment processor
-    showMessage('Checkout functionality would be implemented here. For demo purposes, this simulates a successful order.', 'info');
-    
-    // Simulate successful checkout
+
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+    if (!isLoggedIn) {
+        // Save current guest cart
+        localStorage.setItem("cart_guest", JSON.stringify(cart));
+        // Redirect to login
+        window.location.href = "login.html?redirect=cart.html";
+        return;
+    }
+
+    // Continue checkout simulation
+    showMessage('Proceeding to checkout...', 'info');
+
     setTimeout(() => {
         const orderNumber = 'UT' + Date.now().toString().slice(-6);
         showMessage(`Order ${orderNumber} placed successfully! Thank you for your purchase.`, 'success');
-        
-        // Clear cart
+
+        // Clear user's cart after order
         cart = [];
-        localStorage.removeItem('cart');
+        saveCartToStorage();
         updateCartCount();
         loadCartPage();
     }, 1500);
 }
 
+
 // Save for later functionality
 function saveForLater(productId, size, color) {
-    const item = cart.find(item => 
+    const item = cart.find(item =>
         item.id === productId && item.size === size && item.color === color
     );
-    
+
     if (item) {
         let savedItems = JSON.parse(localStorage.getItem('savedItems') || '[]');
         savedItems.push(item);
         localStorage.setItem('savedItems', JSON.stringify(savedItems));
-        
+
         removeFromCart(productId, size, color);
         showMessage('Item saved for later', 'success');
     }
@@ -175,15 +184,15 @@ function saveForLater(productId, size, color) {
 // Move to cart from saved items
 function moveToCart(productId, size, color) {
     let savedItems = JSON.parse(localStorage.getItem('savedItems') || '[]');
-    const itemIndex = savedItems.findIndex(item => 
+    const itemIndex = savedItems.findIndex(item =>
         item.id === productId && item.size === size && item.color === color
     );
-    
+
     if (itemIndex > -1) {
         const item = savedItems[itemIndex];
         savedItems.splice(itemIndex, 1);
         localStorage.setItem('savedItems', JSON.stringify(savedItems));
-        
+
         addToCart(item.id, item.name, item.price, item.image, item.size, item.color, item.quantity);
         showMessage('Item moved to cart', 'success');
     }
@@ -196,7 +205,7 @@ function applyPromoCode(code) {
         'WELCOME': { discount: 15, type: 'fixed' },
         'FREESHIP': { freeShipping: true }
     };
-    
+
     const promo = validCodes[code.toUpperCase()];
     if (promo) {
         showMessage('Promo code applied successfully!', 'success');
@@ -208,6 +217,25 @@ function applyPromoCode(code) {
     }
 }
 
+function getCurrentUser() {
+    return localStorage.getItem("loggedInUser") || null;
+}
+
+function getUserCartKey() {
+    const user = getCurrentUser();
+    return user ? `cart_${user}` : "cart_guest";
+}
+
+// Load cart from storage
+function loadCartFromStorage() {
+    return JSON.parse(localStorage.getItem(getUserCartKey()) || "[]");
+}
+
+// Save cart to storage
+function saveCartToStorage() {
+    localStorage.setItem(getUserCartKey(), JSON.stringify(cart));
+}
+
 // Estimate shipping
 function estimateShipping(zipCode) {
     // Simulate shipping estimation
@@ -216,12 +244,12 @@ function estimateShipping(zipCode) {
         { method: 'Express', days: '1-2', price: 12.99 },
         { method: 'Overnight', days: '1', price: 24.99 }
     ];
-    
+
     return estimates;
 }
 
 // Initialize cart page when DOM loads
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     if (window.location.pathname.includes('cart.html')) {
         initCart();
     }

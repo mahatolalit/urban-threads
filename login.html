@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Ecom</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        /* Login Page Specific */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: #1a1a1a;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .login-form input {
+            padding: 0.9rem 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            outline: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .login-form input:focus {
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+        }
+
+        .login-btn {
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: #ff6b6b;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background: #e05555;
+        }
+
+        .login-links {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .login-links a {
+            color: #ff6b6b;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        .login-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <h2>Sign In</h2>
+        <form class="login-form">
+            <input type="email" placeholder="Email Address" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        <div class="login-links">
+            <a href="#">Forgot Password?</a> |
+            <a href="#">Create Account</a>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector(".login-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // For demo, user email ko username maan lo
+            const email = e.target.querySelector('input[type="email"]').value;
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("loggedInUser", email);
+
+            // Agar guest cart hai to is user ke naam se save kar do
+            const guestCart = localStorage.getItem("cart_guest");
+            if (guestCart) {
+                localStorage.setItem("cart_" + email, guestCart);
+                localStorage.removeItem("cart_guest");
+            }
+
+            // Redirect back if redirect param exists
+            const params = new URLSearchParams(window.location.search);
+            const redirect = params.get("redirect") || "index.html";
+            window.location.href = redirect;
+        });
+    </script>
+
+
+</body>
+
+</html>

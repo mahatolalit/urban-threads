@@ -176,7 +176,7 @@ body {
     display: flex !important;
     align-items: center;
     padding: 0.7rem 1rem;
-    border-radius: 50px;
+    border-radius: 10px;
     transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease;
 }
 
@@ -187,8 +187,8 @@ body {
 
 .cart-count {
     position: absolute;
-    top: -5px;
-    right: -5px;
+    top: -15px;
+    right: -15px;
     background: #d3b332;
     color: #1a1a1a;
     font-size: 0.75rem;
@@ -233,7 +233,7 @@ body {
     font-weight: 600;
     text-decoration: none;
     border: none;
-    border-radius: 50px;
+    border-radius: 12px;
     cursor: pointer;
     transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease;
     font-family: 'Montserrat', sans-serif;

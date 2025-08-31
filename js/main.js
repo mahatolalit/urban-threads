@@ -312,6 +312,26 @@ function debounce(func, wait) {
     };
 }
 
+function initAuth() {
+    const loginBtn = document.getElementById("login-btn");
+    if (!loginBtn) return;
+
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+    if (isLoggedIn) {
+        loginBtn.textContent = "Logout";
+        loginBtn.href = "#";
+        loginBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            localStorage.removeItem("isLoggedIn");
+            window.location.reload();
+        });
+    } else {
+        loginBtn.textContent = "Login";
+        loginBtn.href = "login.html";
+    }
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     updateCartCount();
@@ -321,6 +341,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnimations();
     initFAQ();
     initLazyLoading();
+    initAuth();
     
     // Add click animation to buttons
     const buttons = document.querySelectorAll('.btn, button');
